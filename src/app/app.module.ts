@@ -2,11 +2,13 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PhotoTiltComponent } from '../components/photo-tilt/photo-tilt';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PhotoTiltComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
