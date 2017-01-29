@@ -57,6 +57,20 @@ export class PhotoTiltComponent {
 
   onDeviceOrientation(ev){
 
+    if(this.averageGamma.length > 8){
+      this.averageGamma.shift();
+    }
+
+    this.averageGamma.push(ev.gamma);
+
+    this.latestTilt = this.averageGamma.reduce((previous, current) => {
+      return previous + current;
+    }) / this.averageGamma.length;
+
+    this.domCtrl.write(() => {
+      this.updatePosition();
+    });
+
   }
 
   updatePosition(){
