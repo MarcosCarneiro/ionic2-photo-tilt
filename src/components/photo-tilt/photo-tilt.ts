@@ -1,22 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild, Renderer } from '@angular/core';
+import { Platform, DomController } from 'ionic-angular';
 
-/*
-  Generated class for the PhotoTilt component.
-
-  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
-  for more info on Angular 2 Components.
-*/
 @Component({
   selector: 'photo-tilt',
-  templateUrl: 'photo-tilt.html'
+  templateUrl: 'photo-tilt.html',
+  host: {
+    '(window:deviceorientation)': 'onDeviceOrientation($event)',
+    '(window:resize)': 'initTilt()'
+  }
 })
 export class PhotoTiltComponent {
 
-  text: string;
+  @Input('tiltImage') tiltImage: any;
+  @Input('tiltHeight') tiltHeight: any;
 
-  constructor() {
-    console.log('Hello PhotoTilt Component');
-    this.text = 'Hello World';
+  @ViewChild('mask') mask: any;
+  @ViewChild('image') image: any;
+
+  averageGamma: any = [];
+  maxTilt: number = 20;
+  latestTilt: any = 0;
+  centerOffset: any;
+  resizedImageWidth: any;
+  aspectRatio: any;
+  delta: any;
+  height: any;
+  width: any;
+
+  constructor(public platform: Platform, public domCtrl: DomController, public renderer: Renderer) {
+
   }
 
+  initTilt(){
+
+  }
+
+  renderTilt(){
+
+  }
+
+  onDeviceOrientation(ev){
+
+  }
+
+  updatePosition(){
+
+  }
+
+  updateTiltImage(pxToMove){
+
+  }
+  
 }
