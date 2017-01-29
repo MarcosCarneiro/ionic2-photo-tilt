@@ -33,9 +33,25 @@ export class PhotoTiltComponent {
 
   initTilt(){
 
+    this.height = this.tiltHeight || this.platform.height();
+    this.width = this.platform.width();
+
+    this.aspectRatio = this.image.nativeElement.width / this.image.nativeElement.height;
+    this.renderTilt();
+
   }
 
   renderTilt(){
+
+    this.image.nativeElement.height = this.height;
+
+    this.resizedImageWidth = this.aspectRatio * this.image.nativeElement.height;
+    this.renderer.setElementStyle(this.image.nativeElement, 'width', this.resizedImageWidth + 'px');
+
+    this.delta = this.resizedImageWidth - this.width;
+    this.centerOffset = this.delta / 2;
+
+    this.updatePosition();
 
   }
 
@@ -50,5 +66,5 @@ export class PhotoTiltComponent {
   updateTiltImage(pxToMove){
 
   }
-  
+
 }
