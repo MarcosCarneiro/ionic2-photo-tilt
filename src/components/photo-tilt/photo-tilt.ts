@@ -61,6 +61,19 @@ export class PhotoTiltComponent {
 
   updatePosition(){
 
+    let tilt = this.latestTilt;
+
+    if(tilt > 0){
+      tilt = Math.min(tilt, this.maxTilt);
+    }
+    else {
+      tilt = Math.max(tilt, this.maxTilt * -1);
+    }
+
+    let pxToMove = (tilt * this.centerOffset) / this.maxTilt;
+
+    this.updateTiltImage((this.centerOffset + pxToMove) * -1);
+
   }
 
   updateTiltImage(pxToMove){
