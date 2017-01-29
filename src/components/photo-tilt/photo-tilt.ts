@@ -78,6 +78,8 @@ export class PhotoTiltComponent {
 
   updateTiltImage(pxToMove){
 
+    this.renderer.setElementStyle(this.image.nativeElement, 'transform', 'translated3d(' + pxToMove + 'px, 0, 0)');
+
   }
 
 }
